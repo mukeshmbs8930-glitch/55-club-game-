@@ -1,23 +1,31 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>55 Club Game</title>
+    <title>Aviator Game</title>
     <style>
-        body { text-align: center; font-family: sans-serif; padding: 20px; }
-        .buttons { margin-top: 20px; }
-        button { padding: 15px 30px; margin: 10px; font-size: 16px; cursor: pointer; border: none; color: white; border-radius: 5px; }
-        .green { background-color: green; }
-        .red { background-color: red; }
-        .violet { background-color: purple; }
+        body { text-align: center; font-family: Arial; padding-top: 50px; }
+        #multiplier { font-size: 60px; color: #ff4500; }
+        button { padding: 20px 40px; font-size: 20px; background-color: #007bff; color: white; border: none; cursor: pointer; }
     </style>
 </head>
 <body>
-    <h1>55 Club Game</h1>
-    <p>अपना रंग चुनें:</p>
-    <div class="buttons">
-        <button class="green" onclick="alert('Green चुना!')">Green</button>
-        <button class="violet" onclick="alert('Violet चुना!')">Violet</button>
-        <button class="red" onclick="alert('Red चुना!')">Red</button>
-    </div>
+    <h2>Aviator Demo</h2>
+    <h1 id="multiplier">1.00x</h1>
+    <button onclick="stopGame()">Cash Out</button>
+
+    <script>
+        let mult = 1.00;
+        const multDisplay = document.getElementById('multiplier');
+        
+        const gameInterval = setInterval(() => {
+            mult += 0.01;
+            multDisplay.innerText = mult.toFixed(2) + "x";
+        }, 100);
+
+        function stopGame() {
+            alert("बधाई हो! आपने " + mult.toFixed(2) + "x पर कैश आउट किया!");
+            clearInterval(gameInterval);
+        }
+    </script>
 </body>
 </html>
